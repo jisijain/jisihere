@@ -131,9 +131,13 @@ class Component extends DCLogic {
     return () => {
       this.setState((s) => {
         const nextMuted = !s.muted[key];
-        const el = this.videoRefs[key];
-        if (el) el.muted = nextMuted;
-        return { muted: { ...s.muted, [key]: nextMuted } };
+        const next = {};
+        for (const k in s.muted) next[k] = k === key ? nextMuted : true;
+        for (const k in this.videoRefs) {
+          const el = this.videoRefs[k];
+          if (el) el.muted = next[k];
+        }
+        return { muted: next };
       });
     };
   }
