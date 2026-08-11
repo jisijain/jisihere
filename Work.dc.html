@@ -20,6 +20,20 @@ body{margin:0;background:#7a1420;font-family:'Archivo',system-ui,sans-serif;-web
 a{color:inherit;text-decoration:none;}
 a:hover{color:#e7a4ac;}
 ::selection{background:#b32434;color:#fff;}
+.video-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(20px,3vw,40px);}
+.video-card{width:fit-content;max-width:100%;margin-inline:auto;background:#271013;border-radius:26px;overflow:hidden;border:1px solid rgba(244,235,230,.28);}
+.video-box{position:relative;height:75vh;max-height:75vh;width:calc(75vh * 9 / 16);max-width:100%;background:#5c0f1b;overflow:hidden;}
+.video-box video{width:100%;height:100%;object-fit:cover;display:block;}
+.video-caption{padding:clamp(16px,2vw,24px) clamp(20px,2.4vw,30px);}
+.video-caption h3{font-family:'Anton',sans-serif;font-weight:400;text-transform:uppercase;font-size:clamp(1.4rem,2.6vw,1.9rem);margin:0;line-height:1;}
+.video-play{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:4;width:64px;height:64px;border-radius:50%;background:rgba(28,10,13,.78);color:#f4ebe6;display:grid;place-items:center;border:2px solid rgba(244,235,230,.55);cursor:pointer;}
+.video-play svg{width:26px;height:26px;margin-left:3px;display:block;}
+.video-tags{position:absolute;top:16px;left:16px;z-index:3;display:flex;flex-direction:column;align-items:flex-start;gap:8px;}
+.video-tag{font-family:'Space Mono',monospace;font-weight:700;font-size:.78rem;padding:.5em 1em;border-radius:999px;background:#b32434;color:#fff;}
+@media (max-width:720px){
+  .video-grid{grid-template-columns:1fr;}
+  .video-box{height:65vh;max-height:65vh;width:calc(65vh * 9 / 16);max-width:100%;}
+}
 </style>
 </helmet>
 <dc-import name="SiteNav" active="work" cta-label="Contact me" cta-href="Contact.dc.html" hint-size="100%,72px"></dc-import>
@@ -28,66 +42,66 @@ a:hover{color:#e7a4ac;}
   <div style="width:100%;max-width:1320px;margin-inline:auto;padding-inline:clamp(20px,5vw,80px);">
     <p style="font-family:'Space Mono',monospace;font-size:13px;letter-spacing:.32em;text-transform:uppercase;font-weight:700;display:inline-flex;align-items:center;gap:.7em;opacity:.85;margin:0 0 18px;"><span style="width:26px;height:2px;background:currentColor;opacity:.6;"></span>Selected work</p>
     <h1 style="font-family:'Anton',sans-serif;font-weight:400;line-height:.9;text-transform:uppercase;margin:0;font-size:clamp(3.4rem,10vw,7.5rem);">Videos</h1>
-    <p style="font-size:clamp(1.05rem,1.5vw,1.35rem);line-height:1.55;max-width:54ch;opacity:.85;margin-top:1.4em;">Vlogs, GRWMs, hauls and brand features, every one written, shot, edited and hosted by me, solo.</p>
+    <p style="font-size:clamp(1.05rem,1.5vw,1.35rem);line-height:1.55;max-width:54ch;opacity:.85;margin-top:1.4em;">Vlogs, UGC content, hauls and brand features, every one written, shot, edited and hosted by me, solo.</p>
   </div>
 </section>
 <section data-screen-label="Work / Grid" style="background:#1c0a0d;color:#f4ebe6;padding:0 0 clamp(72px,11vw,150px);">
-  <div style="width:100%;max-width:1320px;margin-inline:auto;padding-inline:clamp(20px,5vw,80px);display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(20px,3vw,40px);">
-    <article style="background:#271013;border-radius:26px;overflow:hidden;border:1px solid rgba(244,235,230,.28);">
-      <div style="position:relative;aspect-ratio:9/16;max-height:75vh;width:auto;margin-inline:auto;background:#5c0f1b;overflow:hidden;">
-        <video ref="{{v1Ref}}" autoplay muted loop playsinline controls controlsList="nodownload noremoteplayback" style="width:100%;height:100%;object-fit:cover;display:block;"><source src="assets/videos/take-help.mp4" type="video/mp4"></video>
-        <button type="button" onclick="{{v1Toggle}}" aria-label="{{v1Label}}" style="position:absolute;bottom:14px;right:14px;z-index:2;width:38px;height:38px;display:grid;place-items:center;border-radius:50%;background:rgba(28,10,13,.7);color:#f4ebe6;border:1px solid rgba(244,235,230,.4);"><sc-if value="{{v1Muted}}" hint-placeholder-val="{{true}}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:18px;height:18px;display:block;"><path d="M11 5 6 9H3v6h3l5 4V5z"/><line x1="16" y1="9" x2="22" y2="15"/><line x1="22" y1="9" x2="16" y2="15"/></svg></sc-if><sc-if value="{{v1Unmuted}}" hint-placeholder-val="{{false}}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:18px;height:18px;display:block;"><path d="M11 5 6 9H3v6h3l5 4V5z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M18.5 6a9 9 0 0 1 0 12"/></svg></sc-if></button>
+  <div class="video-grid" style="width:100%;max-width:1320px;margin-inline:auto;padding-inline:clamp(20px,5vw,80px);">
+    <article class="video-card">
+      <div class="video-box">
+        <video ref="{{v1Ref}}" playsinline preload="metadata"><source src="assets/videos/take-help.mp4" type="video/mp4"></video>
+        <sc-if value="{{v1NotPlaying}}" hint-placeholder-val="{{true}}"><button type="button" class="video-play" onclick="{{v1Play}}" aria-label="Play video with sound"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></button></sc-if>
       </div>
-      <div style="padding:clamp(20px,2.4vw,30px);display:flex;align-items:center;justify-content:space-between;gap:12px;">
-        <h3 style="font-family:'Anton',sans-serif;font-weight:400;text-transform:uppercase;font-size:clamp(1.6rem,3vw,2.2rem);margin:0;line-height:.95;">Take Help</h3>
-      </div>
-    </article>
-    <article style="background:#271013;border-radius:26px;overflow:hidden;border:1px solid rgba(244,235,230,.28);">
-      <div style="position:relative;aspect-ratio:9/16;max-height:75vh;width:auto;margin-inline:auto;background:#5c0f1b;overflow:hidden;">
-        <div style="position:absolute;top:16px;left:16px;z-index:3;display:flex;flex-direction:column;align-items:flex-start;gap:8px;"><span style="font-family:'Space Mono',monospace;font-weight:700;font-size:.78rem;padding:.5em 1em;border-radius:999px;background:#b32434;color:#fff;">Creative Camera Shot</span></div>
-        <video ref="{{v2Ref}}" autoplay muted loop playsinline controls controlsList="nodownload noremoteplayback" style="width:100%;height:100%;object-fit:cover;display:block;"><source src="assets/videos/vision-board.mp4" type="video/mp4"></video>
-        <button type="button" onclick="{{v2Toggle}}" aria-label="{{v2Label}}" style="position:absolute;bottom:14px;right:14px;z-index:2;width:38px;height:38px;display:grid;place-items:center;border-radius:50%;background:rgba(28,10,13,.7);color:#f4ebe6;border:1px solid rgba(244,235,230,.4);"><sc-if value="{{v2Muted}}" hint-placeholder-val="{{true}}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:18px;height:18px;display:block;"><path d="M11 5 6 9H3v6h3l5 4V5z"/><line x1="16" y1="9" x2="22" y2="15"/><line x1="22" y1="9" x2="16" y2="15"/></svg></sc-if><sc-if value="{{v2Unmuted}}" hint-placeholder-val="{{false}}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:18px;height:18px;display:block;"><path d="M11 5 6 9H3v6h3l5 4V5z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M18.5 6a9 9 0 0 1 0 12"/></svg></sc-if></button>
-      </div>
-      <div style="padding:clamp(20px,2.4vw,30px);display:flex;align-items:center;justify-content:space-between;gap:12px;">
-        <h3 style="font-family:'Anton',sans-serif;font-weight:400;text-transform:uppercase;font-size:clamp(1.6rem,3vw,2.2rem);margin:0;line-height:.95;">Vision Board</h3>
+      <div class="video-caption">
+        <h3>Take Help</h3>
       </div>
     </article>
-    <article style="background:#271013;border-radius:26px;overflow:hidden;border:1px solid rgba(244,235,230,.28);">
-      <div style="position:relative;aspect-ratio:9/16;max-height:75vh;width:auto;margin-inline:auto;background:#5c0f1b;overflow:hidden;">
-        <video ref="{{v3Ref}}" autoplay muted loop playsinline controls controlsList="nodownload noremoteplayback" style="width:100%;height:100%;object-fit:cover;display:block;"><source src="assets/videos/perfection-kills.mp4" type="video/mp4"></video>
-        <button type="button" onclick="{{v3Toggle}}" aria-label="{{v3Label}}" style="position:absolute;bottom:14px;right:14px;z-index:2;width:38px;height:38px;display:grid;place-items:center;border-radius:50%;background:rgba(28,10,13,.7);color:#f4ebe6;border:1px solid rgba(244,235,230,.4);"><sc-if value="{{v3Muted}}" hint-placeholder-val="{{true}}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:18px;height:18px;display:block;"><path d="M11 5 6 9H3v6h3l5 4V5z"/><line x1="16" y1="9" x2="22" y2="15"/><line x1="22" y1="9" x2="16" y2="15"/></svg></sc-if><sc-if value="{{v3Unmuted}}" hint-placeholder-val="{{false}}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:18px;height:18px;display:block;"><path d="M11 5 6 9H3v6h3l5 4V5z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M18.5 6a9 9 0 0 1 0 12"/></svg></sc-if></button>
+    <article class="video-card">
+      <div class="video-box">
+        <div class="video-tags"><span class="video-tag">Creative Camera Shot</span></div>
+        <video ref="{{v2Ref}}" playsinline preload="metadata"><source src="assets/videos/vision-board.mp4" type="video/mp4"></video>
+        <sc-if value="{{v2NotPlaying}}" hint-placeholder-val="{{true}}"><button type="button" class="video-play" onclick="{{v2Play}}" aria-label="Play video with sound"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></button></sc-if>
       </div>
-      <div style="padding:clamp(20px,2.4vw,30px);display:flex;align-items:center;justify-content:space-between;gap:12px;">
-        <h3 style="font-family:'Anton',sans-serif;font-weight:400;text-transform:uppercase;font-size:clamp(1.6rem,3vw,2.2rem);margin:0;line-height:.95;">Perfection Kills</h3>
-      </div>
-    </article>
-    <article style="background:#271013;border-radius:26px;overflow:hidden;border:1px solid rgba(244,235,230,.28);">
-      <div style="position:relative;aspect-ratio:9/16;max-height:75vh;width:auto;margin-inline:auto;background:#5c0f1b;overflow:hidden;">
-        <div style="position:absolute;top:16px;left:16px;z-index:3;display:flex;flex-direction:column;align-items:flex-start;gap:8px;"><span style="font-family:'Space Mono',monospace;font-weight:700;font-size:.78rem;padding:.5em 1em;border-radius:999px;background:#b32434;color:#fff;">Most Watched</span><span style="font-family:'Space Mono',monospace;font-weight:700;font-size:.78rem;padding:.5em 1em;border-radius:999px;background:#b32434;color:#fff;">4M+ views</span></div>
-        <video ref="{{v4Ref}}" autoplay muted loop playsinline controls controlsList="nodownload noremoteplayback" style="width:100%;height:100%;object-fit:cover;display:block;"><source src="assets/videos/zudio.mp4" type="video/mp4"></video>
-        <button type="button" onclick="{{v4Toggle}}" aria-label="{{v4Label}}" style="position:absolute;bottom:14px;right:14px;z-index:2;width:38px;height:38px;display:grid;place-items:center;border-radius:50%;background:rgba(28,10,13,.7);color:#f4ebe6;border:1px solid rgba(244,235,230,.4);"><sc-if value="{{v4Muted}}" hint-placeholder-val="{{true}}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:18px;height:18px;display:block;"><path d="M11 5 6 9H3v6h3l5 4V5z"/><line x1="16" y1="9" x2="22" y2="15"/><line x1="22" y1="9" x2="16" y2="15"/></svg></sc-if><sc-if value="{{v4Unmuted}}" hint-placeholder-val="{{false}}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:18px;height:18px;display:block;"><path d="M11 5 6 9H3v6h3l5 4V5z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M18.5 6a9 9 0 0 1 0 12"/></svg></sc-if></button>
-      </div>
-      <div style="padding:clamp(20px,2.4vw,30px);display:flex;align-items:center;justify-content:space-between;gap:12px;">
-        <h3 style="font-family:'Anton',sans-serif;font-weight:400;text-transform:uppercase;font-size:clamp(1.6rem,3vw,2.2rem);margin:0;line-height:.95;">Zudio</h3>
+      <div class="video-caption">
+        <h3>Vision Board</h3>
       </div>
     </article>
-    <article style="background:#271013;border-radius:26px;overflow:hidden;border:1px solid rgba(244,235,230,.28);">
-      <div style="position:relative;aspect-ratio:9/16;max-height:75vh;width:auto;margin-inline:auto;background:#5c0f1b;overflow:hidden;">
-        <video ref="{{v5Ref}}" autoplay muted loop playsinline controls controlsList="nodownload noremoteplayback" style="width:100%;height:100%;object-fit:cover;display:block;"><source src="assets/videos/cue-wrong-habits.mp4" type="video/mp4"></video>
-        <button type="button" onclick="{{v5Toggle}}" aria-label="{{v5Label}}" style="position:absolute;bottom:14px;right:14px;z-index:2;width:38px;height:38px;display:grid;place-items:center;border-radius:50%;background:rgba(28,10,13,.7);color:#f4ebe6;border:1px solid rgba(244,235,230,.4);"><sc-if value="{{v5Muted}}" hint-placeholder-val="{{true}}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:18px;height:18px;display:block;"><path d="M11 5 6 9H3v6h3l5 4V5z"/><line x1="16" y1="9" x2="22" y2="15"/><line x1="22" y1="9" x2="16" y2="15"/></svg></sc-if><sc-if value="{{v5Unmuted}}" hint-placeholder-val="{{false}}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:18px;height:18px;display:block;"><path d="M11 5 6 9H3v6h3l5 4V5z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M18.5 6a9 9 0 0 1 0 12"/></svg></sc-if></button>
+    <article class="video-card">
+      <div class="video-box">
+        <video ref="{{v3Ref}}" playsinline preload="metadata"><source src="assets/videos/perfection-kills.mp4" type="video/mp4"></video>
+        <sc-if value="{{v3NotPlaying}}" hint-placeholder-val="{{true}}"><button type="button" class="video-play" onclick="{{v3Play}}" aria-label="Play video with sound"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></button></sc-if>
       </div>
-      <div style="padding:clamp(20px,2.4vw,30px);display:flex;align-items:center;justify-content:space-between;gap:12px;">
-        <h3 style="font-family:'Anton',sans-serif;font-weight:400;text-transform:uppercase;font-size:clamp(1.6rem,3vw,2.2rem);margin:0;line-height:.95;">Cue: Wrong Habits</h3>
+      <div class="video-caption">
+        <h3>Perfection Kills</h3>
       </div>
     </article>
-    <article style="background:#271013;border-radius:26px;overflow:hidden;border:1px solid rgba(244,235,230,.28);">
-      <div style="position:relative;aspect-ratio:9/16;max-height:75vh;width:auto;margin-inline:auto;background:#5c0f1b;overflow:hidden;">
-        <div style="position:absolute;top:16px;left:16px;z-index:3;display:flex;flex-direction:column;align-items:flex-start;gap:8px;"><span style="font-family:'Space Mono',monospace;font-weight:700;font-size:.78rem;padding:.5em 1em;border-radius:999px;background:#b32434;color:#fff;">Creative Editing</span><span style="font-family:'Space Mono',monospace;font-weight:700;font-size:.78rem;padding:.5em 1em;border-radius:999px;background:#b32434;color:#fff;">Shoot</span></div>
-        <video ref="{{v6Ref}}" autoplay muted loop playsinline controls controlsList="nodownload noremoteplayback" style="width:100%;height:100%;object-fit:cover;display:block;"><source src="assets/videos/fake-hustle.mp4" type="video/mp4"></video>
-        <button type="button" onclick="{{v6Toggle}}" aria-label="{{v6Label}}" style="position:absolute;bottom:14px;right:14px;z-index:2;width:38px;height:38px;display:grid;place-items:center;border-radius:50%;background:rgba(28,10,13,.7);color:#f4ebe6;border:1px solid rgba(244,235,230,.4);"><sc-if value="{{v6Muted}}" hint-placeholder-val="{{true}}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:18px;height:18px;display:block;"><path d="M11 5 6 9H3v6h3l5 4V5z"/><line x1="16" y1="9" x2="22" y2="15"/><line x1="22" y1="9" x2="16" y2="15"/></svg></sc-if><sc-if value="{{v6Unmuted}}" hint-placeholder-val="{{false}}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:18px;height:18px;display:block;"><path d="M11 5 6 9H3v6h3l5 4V5z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M18.5 6a9 9 0 0 1 0 12"/></svg></sc-if></button>
+    <article class="video-card">
+      <div class="video-box">
+        <div class="video-tags"><span class="video-tag">Most Watched</span><span class="video-tag">4M+ views</span></div>
+        <video ref="{{v4Ref}}" playsinline preload="metadata"><source src="assets/videos/zudio.mp4" type="video/mp4"></video>
+        <sc-if value="{{v4NotPlaying}}" hint-placeholder-val="{{true}}"><button type="button" class="video-play" onclick="{{v4Play}}" aria-label="Play video with sound"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></button></sc-if>
       </div>
-      <div style="padding:clamp(20px,2.4vw,30px);display:flex;align-items:center;justify-content:space-between;gap:12px;">
-        <h3 style="font-family:'Anton',sans-serif;font-weight:400;text-transform:uppercase;font-size:clamp(1.6rem,3vw,2.2rem);margin:0;line-height:.95;">Fake Hustle</h3>
+      <div class="video-caption">
+        <h3>Zudio</h3>
+      </div>
+    </article>
+    <article class="video-card">
+      <div class="video-box">
+        <video ref="{{v5Ref}}" playsinline preload="metadata"><source src="assets/videos/cue-wrong-habits.mp4" type="video/mp4"></video>
+        <sc-if value="{{v5NotPlaying}}" hint-placeholder-val="{{true}}"><button type="button" class="video-play" onclick="{{v5Play}}" aria-label="Play video with sound"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></button></sc-if>
+      </div>
+      <div class="video-caption">
+        <h3>Cue: Wrong Habits</h3>
+      </div>
+    </article>
+    <article class="video-card">
+      <div class="video-box">
+        <div class="video-tags"><span class="video-tag">Creative Editing</span><span class="video-tag">Shoot</span></div>
+        <video ref="{{v6Ref}}" playsinline preload="metadata"><source src="assets/videos/fake-hustle.mp4" type="video/mp4"></video>
+        <sc-if value="{{v6NotPlaying}}" hint-placeholder-val="{{true}}"><button type="button" class="video-play" onclick="{{v6Play}}" aria-label="Play video with sound"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></button></sc-if>
+      </div>
+      <div class="video-caption">
+        <h3>Fake Hustle</h3>
       </div>
     </article>
   </div>
@@ -133,31 +147,41 @@ a:hover{color:#e7a4ac;}
 </x-dc>
 <script type="text/x-dc" data-dc-script>
 class Component extends DCLogic {
-  state = { muted: { v1: true, v2: true, v3: true, v4: true, v5: true, v6: true } };
+  state = { playing: { v1: false, v2: false, v3: false, v4: false, v5: false, v6: false } };
   videoRefs = {};
   setRef(key) {
     return (el) => {
       this.videoRefs[key] = el;
-      if (el) {
-        el.muted = this.state.muted[key];
+      if (el && !el.__wired) {
+        el.__wired = true;
         el.loop = true;
         el.controls = true;
+        el.addEventListener('play', () => {
+          for (const k in this.videoRefs) {
+            if (k === key) continue;
+            const other = this.videoRefs[k];
+            if (other && !other.paused) other.pause();
+          }
+          this.setState((s) => {
+            const next = {};
+            for (const k in s.playing) next[k] = k === key;
+            return { playing: next };
+          });
+        });
+        el.addEventListener('pause', () => {
+          this.setState((s) => ({ playing: { ...s.playing, [key]: false } }));
+        });
         if (this.observer) this.observer.observe(el);
       }
     };
   }
-  toggle(key) {
+  play(key) {
     return () => {
-      this.setState((s) => {
-        const nextMuted = !s.muted[key];
-        const next = {};
-        for (const k in s.muted) next[k] = k === key ? nextMuted : true;
-        for (const k in this.videoRefs) {
-          const el = this.videoRefs[k];
-          if (el) el.muted = next[k];
-        }
-        return { muted: next };
-      });
+      const el = this.videoRefs[key];
+      if (el) {
+        el.muted = false;
+        el.play();
+      }
     };
   }
   componentDidMount() {
@@ -165,14 +189,10 @@ class Component extends DCLogic {
       (entries) => {
         for (const entry of entries) {
           if (entry.isIntersecting) continue;
-          const key = Object.keys(this.videoRefs).find((k) => this.videoRefs[k] === entry.target);
-          if (key && this.state.muted[key] === false) {
-            entry.target.muted = true;
-            this.setState((s) => ({ muted: { ...s.muted, [key]: true } }));
-          }
+          if (!entry.target.paused) entry.target.pause();
         }
       },
-      { threshold: 0.3 }
+      { threshold: 0.2 }
     );
     for (const k in this.videoRefs) {
       const el = this.videoRefs[k];
@@ -183,15 +203,14 @@ class Component extends DCLogic {
     if (this.observer) this.observer.disconnect();
   }
   renderVals() {
-    const m = this.state.muted;
+    const p = this.state.playing;
     const keys = ['v1', 'v2', 'v3', 'v4', 'v5', 'v6'];
     const out = {};
     keys.forEach((k) => {
       out[k + 'Ref'] = this.setRef(k);
-      out[k + 'Toggle'] = this.toggle(k);
-      out[k + 'Label'] = m[k] ? 'Unmute' : 'Mute';
-      out[k + 'Muted'] = m[k];
-      out[k + 'Unmuted'] = !m[k];
+      out[k + 'Play'] = this.play(k);
+      out[k + 'Playing'] = p[k];
+      out[k + 'NotPlaying'] = !p[k];
     });
     return out;
   }
