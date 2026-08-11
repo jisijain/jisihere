@@ -26,6 +26,7 @@ a:hover{color:#e7a4ac;}
 ::selection{background:#b32434;color:#fff;}
 @keyframes marquee{ to{ transform:translateX(-50%); } }
 @keyframes bob{ 0%,100%{transform:translateY(0);} 50%{transform:translateY(-14px);} }
+.about-teaser-grid{display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);gap:clamp(32px,6vw,80px);align-items:start;}
 .video-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(20px,3vw,40px);}
 .video-card{width:fit-content;max-width:100%;margin-inline:auto;background:#271013;border-radius:26px;overflow:hidden;border:2px solid rgba(244,235,230,.4);}
 .video-box{position:relative;height:75vh;max-height:75vh;width:calc(75vh * 9 / 16);max-width:100%;background:#5c0f1b;overflow:hidden;}
@@ -41,6 +42,7 @@ a:hover{color:#e7a4ac;}
 @media (max-width:720px){
   .video-grid{grid-template-columns:1fr;}
   .video-box{height:65vh;max-height:65vh;width:calc(65vh * 9 / 16);max-width:100%;}
+  .about-teaser-grid{grid-template-columns:1fr;gap:40px;}
 }
 </style>
 </helmet>
@@ -79,10 +81,14 @@ a:hover{color:#e7a4ac;}
 </div>
 
 <section data-screen-label="Home / About teaser" style="background:#f4ebe6;color:#1c0a0d;padding:clamp(72px,11vw,150px) 0;">
-  <div style="width:100%;max-width:1320px;margin-inline:auto;padding-inline:clamp(20px,5vw,80px);display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);gap:clamp(32px,6vw,80px);align-items:start;">
+  <div class="about-teaser-grid" style="width:100%;max-width:1320px;margin-inline:auto;padding-inline:clamp(20px,5vw,80px);">
     <div style="min-width:0;">
       <p style="font-family:'Space Mono',monospace;font-size:13px;letter-spacing:.32em;text-transform:uppercase;font-weight:700;display:inline-flex;align-items:center;gap:.7em;opacity:.85;margin:0 0 18px;"><span style="width:26px;height:2px;background:currentColor;opacity:.6;"></span>About me</p>
       <h2 style="font-family:'Anton',sans-serif;font-weight:400;line-height:.92;letter-spacing:.01em;text-transform:uppercase;margin:0;font-size:clamp(2.6rem,7vw,5.4rem);overflow-wrap:anywhere;">Content that<br/>doesn't feel like <span style="color:#b32434;">content.</span></h2>
+      <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:clamp(28px,4vw,48px);">
+        <image-slot id="about-photo-1" src="assets/images/about-photo-1.jpg" shape="rounded" radius="20" placeholder="Photo" fit="cover" style="width:100%;aspect-ratio:3/4;"></image-slot>
+        <image-slot id="about-photo-2" src="assets/images/about-photo-2.jpg" shape="rounded" radius="20" placeholder="Photo" fit="cover" style="width:100%;aspect-ratio:3/4;"></image-slot>
+      </div>
     </div>
     <div style="min-width:0;">
       <p style="font-size:clamp(1.05rem,1.5vw,1.35rem);line-height:1.55;max-width:56ch;margin:0;">I'm a solo content creator across vlogs and lifestyle. I write the script, shoot it, edit it, and act in it. I've crossed <strong>10M+ views</strong> across my last 20 videos, and it's built the same way every video is: no crew, just a plan and a camera.</p>
@@ -92,10 +98,6 @@ a:hover{color:#e7a4ac;}
         <div><span style="font-family:'Anton',sans-serif;font-weight:400;font-size:clamp(3rem,6vw,4.6rem);line-height:.9;color:#b32434;display:block;">2</span><span style="font-family:'Space Mono',monospace;font-size:.8rem;text-transform:uppercase;letter-spacing:.1em;opacity:.7;">Platforms, one voice</span></div>
       </div>
       <a href="About.dc.html" style="display:inline-flex;align-items:center;gap:.7em;font-weight:700;font-size:1rem;padding:1.05em 1.8em;border-radius:999px;background:#1c0a0d;color:#f4ebe6;margin-top:8px;" style-hover="transform:translateY(-3px);">More about me <span>↗</span></a>
-      <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:44px;">
-        <image-slot id="about-photo-1" src="assets/images/about-photo-1.jpg" shape="rounded" radius="16" placeholder="Photo" fit="cover" style="width:100%;aspect-ratio:3/4;"></image-slot>
-        <image-slot id="about-photo-2" src="assets/images/about-photo-2.jpg" shape="rounded" radius="16" placeholder="Photo" fit="cover" style="width:100%;aspect-ratio:3/4;"></image-slot>
-      </div>
     </div>
   </div>
 </section>
