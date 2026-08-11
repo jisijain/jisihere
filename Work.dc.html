@@ -14,14 +14,12 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:ital,wght@0,400;0,500;0,600;0,700;0,800;1,500&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <script src="./image-slot.js"></script>
-<script async src="//www.instagram.com/embed.js"></script>
 <style>
 *,*::before,*::after{box-sizing:border-box;}
 body{margin:0;background:#7a1420;font-family:'Archivo',system-ui,sans-serif;-webkit-font-smoothing:antialiased;}
 a{color:inherit;text-decoration:none;}
 a:hover{color:#e7a4ac;}
 ::selection{background:#b32434;color:#fff;}
-.instagram-media{margin:0 !important;width:100% !important;max-width:100% !important;min-width:0 !important;}
 </style>
 </helmet>
 <dc-import name="SiteNav" active="work" cta-label="Contact me" cta-href="Contact.dc.html" hint-size="100%,72px"></dc-import>
@@ -35,71 +33,49 @@ a:hover{color:#e7a4ac;}
 </section>
 <section data-screen-label="Work / Grid" style="background:#1c0a0d;color:#f4ebe6;padding:0 0 clamp(72px,11vw,150px);">
   <div style="width:100%;max-width:1320px;margin-inline:auto;padding-inline:clamp(20px,5vw,80px);display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(20px,3vw,40px);">
-    <article style="background:#271013;border-radius:26px;overflow:hidden;border:1px solid rgba(244,235,230,.28);position:relative;">
-      <div style="position:absolute;top:16px;left:16px;z-index:3;background:#b32434;color:#fff;font-family:'Space Mono',monospace;font-weight:700;font-size:.78rem;padding:.5em 1em;border-radius:999px;">4M+ views</div>
-      <div style="position:relative;background:#5c0f1b;line-height:0;">
-        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DQy56cZkupN/" data-instgrm-version="14" style="width:100%;margin:0;"></blockquote>
+    <article style="background:#271013;border-radius:26px;overflow:hidden;border:1px solid rgba(244,235,230,.28);">
+      <div style="position:relative;aspect-ratio:9/16;background:#5c0f1b;overflow:hidden;">
+        <video ref="{{v1Ref}}" autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;display:block;"><source src="assets/videos/vision-board.mp4" type="video/mp4"></video>
+        <button type="button" onclick="{{v1Toggle}}" aria-label="{{v1Label}}" style="position:absolute;bottom:14px;right:14px;z-index:2;width:38px;height:38px;display:grid;place-items:center;border-radius:50%;background:rgba(28,10,13,.7);color:#f4ebe6;border:1px solid rgba(244,235,230,.4);"><sc-if value="{{v1Muted}}" hint-placeholder-val="{{true}}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:18px;height:18px;display:block;"><path d="M11 5 6 9H3v6h3l5 4V5z"/><line x1="16" y1="9" x2="22" y2="15"/><line x1="22" y1="9" x2="16" y2="15"/></svg></sc-if><sc-if value="{{v1Unmuted}}" hint-placeholder-val="{{false}}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:18px;height:18px;display:block;"><path d="M11 5 6 9H3v6h3l5 4V5z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M18.5 6a9 9 0 0 1 0 12"/></svg></sc-if></button>
       </div>
-      <div style="padding:clamp(20px,2.4vw,30px);">
-        <span style="font-family:'Space Mono',monospace;font-size:.78rem;text-transform:uppercase;letter-spacing:.12em;color:#c8384a;">Instagram · Reel</span>
-        <h3 style="font-family:'Anton',sans-serif;font-weight:400;text-transform:uppercase;font-size:clamp(1.8rem,3.4vw,2.5rem);margin:.25em 0 .35em;line-height:.95;">The one that hit 4M+</h3>
-        <p style="margin:0;opacity:.78;line-height:1.55;">Written, shot, edited and hosted solo — watch it on Instagram.</p>
+      <div style="padding:clamp(20px,2.4vw,30px);display:flex;align-items:center;justify-content:space-between;gap:12px;">
+        <h3 style="font-family:'Anton',sans-serif;font-weight:400;text-transform:uppercase;font-size:clamp(1.6rem,3vw,2.2rem);margin:0;line-height:.95;">Vision Board</h3>
       </div>
     </article>
     <article style="background:#271013;border-radius:26px;overflow:hidden;border:1px solid rgba(244,235,230,.28);">
-      <div style="position:relative;background:#5c0f1b;line-height:0;">
-        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DaQBSRZJtwA/" data-instgrm-version="14" style="width:100%;margin:0;"></blockquote>
+      <div style="position:relative;aspect-ratio:9/16;background:#5c0f1b;overflow:hidden;">
+        <video ref="{{v2Ref}}" autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;display:block;"><source src="assets/videos/my-goals.mp4" type="video/mp4"></video>
+        <button type="button" onclick="{{v2Toggle}}" aria-label="{{v2Label}}" style="position:absolute;bottom:14px;right:14px;z-index:2;width:38px;height:38px;display:grid;place-items:center;border-radius:50%;background:rgba(28,10,13,.7);color:#f4ebe6;border:1px solid rgba(244,235,230,.4);"><sc-if value="{{v2Muted}}" hint-placeholder-val="{{true}}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:18px;height:18px;display:block;"><path d="M11 5 6 9H3v6h3l5 4V5z"/><line x1="16" y1="9" x2="22" y2="15"/><line x1="22" y1="9" x2="16" y2="15"/></svg></sc-if><sc-if value="{{v2Unmuted}}" hint-placeholder-val="{{false}}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:18px;height:18px;display:block;"><path d="M11 5 6 9H3v6h3l5 4V5z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M18.5 6a9 9 0 0 1 0 12"/></svg></sc-if></button>
       </div>
-      <div style="padding:clamp(20px,2.4vw,30px);">
-        <span style="font-family:'Space Mono',monospace;font-size:.78rem;text-transform:uppercase;letter-spacing:.12em;color:#c8384a;">Instagram · Reel</span>
-        <h3 style="font-family:'Anton',sans-serif;font-weight:400;text-transform:uppercase;font-size:clamp(1.8rem,3.4vw,2.5rem);margin:.25em 0 .35em;line-height:.95;">Weekend Diaries</h3>
-        <p style="margin:0;opacity:.78;line-height:1.55;">A day-in-the-life GRWM, cut for retention from the first frame.</p>
-      </div>
-    </article>
-    <article style="background:#271013;border-radius:26px;overflow:hidden;border:1px solid rgba(244,235,230,.28);">
-      <div style="position:relative;aspect-ratio:16/11;background:#5c0f1b;overflow:hidden;">
-        <video ref="{{v3Ref}}" autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;display:block;"></video>
-        <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;padding:20px;pointer-events:none;color:rgba(244,235,230,.55);font-family:'Space Mono',monospace;font-size:.78rem;text-transform:uppercase;letter-spacing:.08em;">Drop your Instagram video file here</div>
-        <button type="button" onclick="{{v3Toggle}}" style="position:absolute;bottom:14px;right:14px;z-index:2;font-family:'Space Mono',monospace;font-weight:700;font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;padding:.55em 1em;border-radius:999px;background:rgba(28,10,13,.7);color:#f4ebe6;border:1px solid rgba(244,235,230,.4);">{{v3Label}}</button>
-      </div>
-      <div style="padding:clamp(20px,2.4vw,30px);">
-        <span style="font-family:'Space Mono',monospace;font-size:.78rem;text-transform:uppercase;letter-spacing:.12em;color:#c8384a;">YouTube · GRWM</span>
-        <h3 style="font-family:'Anton',sans-serif;font-weight:400;text-transform:uppercase;font-size:clamp(1.8rem,3.4vw,2.5rem);margin:.25em 0 .35em;line-height:.95;">Festive Edition GRWM</h3>
-        <p style="margin:0;opacity:.78;line-height:1.55;">Outfit, makeup and the story behind the shoot, scripted and self-shot.</p>
+      <div style="padding:clamp(20px,2.4vw,30px);display:flex;align-items:center;justify-content:space-between;gap:12px;">
+        <h3 style="font-family:'Anton',sans-serif;font-weight:400;text-transform:uppercase;font-size:clamp(1.6rem,3vw,2.2rem);margin:0;line-height:.95;">My Goals</h3>
       </div>
     </article>
     <article style="background:#271013;border-radius:26px;overflow:hidden;border:1px solid rgba(244,235,230,.28);">
-      <div style="position:relative;aspect-ratio:16/11;background:#5c0f1b;overflow:hidden;">
-        <video ref="{{v4Ref}}" autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;display:block;"></video>
-        <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;padding:20px;pointer-events:none;color:rgba(244,235,230,.55);font-family:'Space Mono',monospace;font-size:.78rem;text-transform:uppercase;letter-spacing:.08em;">Drop your Instagram video file here</div>
-        <button type="button" onclick="{{v4Toggle}}" style="position:absolute;bottom:14px;right:14px;z-index:2;font-family:'Space Mono',monospace;font-weight:700;font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;padding:.55em 1em;border-radius:999px;background:rgba(28,10,13,.7);color:#f4ebe6;border:1px solid rgba(244,235,230,.4);">{{v4Label}}</button>
+      <div style="position:relative;aspect-ratio:9/16;background:#5c0f1b;overflow:hidden;">
+        <video ref="{{v3Ref}}" autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;display:block;"><source src="assets/videos/cue-wrong-habits.mp4" type="video/mp4"></video>
+        <button type="button" onclick="{{v3Toggle}}" aria-label="{{v3Label}}" style="position:absolute;bottom:14px;right:14px;z-index:2;width:38px;height:38px;display:grid;place-items:center;border-radius:50%;background:rgba(28,10,13,.7);color:#f4ebe6;border:1px solid rgba(244,235,230,.4);"><sc-if value="{{v3Muted}}" hint-placeholder-val="{{true}}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:18px;height:18px;display:block;"><path d="M11 5 6 9H3v6h3l5 4V5z"/><line x1="16" y1="9" x2="22" y2="15"/><line x1="22" y1="9" x2="16" y2="15"/></svg></sc-if><sc-if value="{{v3Unmuted}}" hint-placeholder-val="{{false}}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:18px;height:18px;display:block;"><path d="M11 5 6 9H3v6h3l5 4V5z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M18.5 6a9 9 0 0 1 0 12"/></svg></sc-if></button>
       </div>
-      <div style="padding:clamp(20px,2.4vw,30px);">
-        <span style="font-family:'Space Mono',monospace;font-size:.78rem;text-transform:uppercase;letter-spacing:.12em;color:#c8384a;">YouTube · Vlog</span>
-        <h3 style="font-family:'Anton',sans-serif;font-weight:400;text-transform:uppercase;font-size:clamp(1.8rem,3.4vw,2.5rem);margin:.25em 0 .35em;line-height:.95;">Room Tour &amp; Reset</h3>
-        <p style="margin:0;opacity:.78;line-height:1.55;">A slower vlog, planned, shot handheld, edited for a calmer pace.</p>
+      <div style="padding:clamp(20px,2.4vw,30px);display:flex;align-items:center;justify-content:space-between;gap:12px;">
+        <h3 style="font-family:'Anton',sans-serif;font-weight:400;text-transform:uppercase;font-size:clamp(1.6rem,3vw,2.2rem);margin:0;line-height:.95;">Cue: Wrong Habits</h3>
       </div>
     </article>
     <article style="background:#271013;border-radius:26px;overflow:hidden;border:1px solid rgba(244,235,230,.28);">
-      <div style="position:relative;background:#5c0f1b;line-height:0;">
-        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DOqU-F5kleT/" data-instgrm-version="14" style="width:100%;margin:0;"></blockquote>
+      <div style="position:relative;aspect-ratio:9/16;background:#5c0f1b;overflow:hidden;">
+        <video ref="{{v4Ref}}" autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;display:block;"><source src="assets/videos/zudio.mp4" type="video/mp4"></video>
+        <button type="button" onclick="{{v4Toggle}}" aria-label="{{v4Label}}" style="position:absolute;bottom:14px;right:14px;z-index:2;width:38px;height:38px;display:grid;place-items:center;border-radius:50%;background:rgba(28,10,13,.7);color:#f4ebe6;border:1px solid rgba(244,235,230,.4);"><sc-if value="{{v4Muted}}" hint-placeholder-val="{{true}}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:18px;height:18px;display:block;"><path d="M11 5 6 9H3v6h3l5 4V5z"/><line x1="16" y1="9" x2="22" y2="15"/><line x1="22" y1="9" x2="16" y2="15"/></svg></sc-if><sc-if value="{{v4Unmuted}}" hint-placeholder-val="{{false}}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:18px;height:18px;display:block;"><path d="M11 5 6 9H3v6h3l5 4V5z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M18.5 6a9 9 0 0 1 0 12"/></svg></sc-if></button>
       </div>
-      <div style="padding:clamp(20px,2.4vw,30px);">
-        <span style="font-family:'Space Mono',monospace;font-size:.78rem;text-transform:uppercase;letter-spacing:.12em;color:#c8384a;">Instagram · Reel</span>
-        <h3 style="font-family:'Anton',sans-serif;font-weight:400;text-transform:uppercase;font-size:clamp(1.8rem,3.4vw,2.5rem);margin:.25em 0 .35em;line-height:.95;">When Mom Calls Mid-Shoot</h3>
-        <p style="margin:0;opacity:.78;line-height:1.55;">Written, acted and edited solo — watch it on Instagram.</p>
+      <div style="padding:clamp(20px,2.4vw,30px);display:flex;align-items:center;justify-content:space-between;gap:12px;">
+        <h3 style="font-family:'Anton',sans-serif;font-weight:400;text-transform:uppercase;font-size:clamp(1.6rem,3vw,2.2rem);margin:0;line-height:.95;">Zudio</h3>
       </div>
     </article>
     <article style="background:#271013;border-radius:26px;overflow:hidden;border:1px solid rgba(244,235,230,.28);">
-      <div style="position:relative;aspect-ratio:16/11;background:#5c0f1b;overflow:hidden;">
-        <video ref="{{v6Ref}}" autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;display:block;"></video>
-        <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;padding:20px;pointer-events:none;color:rgba(244,235,230,.55);font-family:'Space Mono',monospace;font-size:.78rem;text-transform:uppercase;letter-spacing:.08em;">Drop your Instagram video file here</div>
-        <button type="button" onclick="{{v6Toggle}}" style="position:absolute;bottom:14px;right:14px;z-index:2;font-family:'Space Mono',monospace;font-weight:700;font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;padding:.55em 1em;border-radius:999px;background:rgba(28,10,13,.7);color:#f4ebe6;border:1px solid rgba(244,235,230,.4);">{{v6Label}}</button>
+      <div style="position:relative;aspect-ratio:9/16;background:#5c0f1b;overflow:hidden;">
+        <video ref="{{v5Ref}}" autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;display:block;"><source src="assets/videos/fake-hustle.mp4" type="video/mp4"></video>
+        <button type="button" onclick="{{v5Toggle}}" aria-label="{{v5Label}}" style="position:absolute;bottom:14px;right:14px;z-index:2;width:38px;height:38px;display:grid;place-items:center;border-radius:50%;background:rgba(28,10,13,.7);color:#f4ebe6;border:1px solid rgba(244,235,230,.4);"><sc-if value="{{v5Muted}}" hint-placeholder-val="{{true}}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:18px;height:18px;display:block;"><path d="M11 5 6 9H3v6h3l5 4V5z"/><line x1="16" y1="9" x2="22" y2="15"/><line x1="22" y1="9" x2="16" y2="15"/></svg></sc-if><sc-if value="{{v5Unmuted}}" hint-placeholder-val="{{false}}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:18px;height:18px;display:block;"><path d="M11 5 6 9H3v6h3l5 4V5z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M18.5 6a9 9 0 0 1 0 12"/></svg></sc-if></button>
       </div>
-      <div style="padding:clamp(20px,2.4vw,30px);">
-        <span style="font-family:'Space Mono',monospace;font-size:.78rem;text-transform:uppercase;letter-spacing:.12em;color:#c8384a;">YouTube · Storytime</span>
-        <h3 style="font-family:'Anton',sans-serif;font-weight:400;text-transform:uppercase;font-size:clamp(1.8rem,3.4vw,2.5rem);margin:.25em 0 .35em;line-height:.95;">Q&amp;A With My Camera</h3>
-        <p style="margin:0;opacity:.78;line-height:1.55;">Talking-head storytime: one take, one light, one mic.</p>
+      <div style="padding:clamp(20px,2.4vw,30px);display:flex;align-items:center;justify-content:space-between;gap:12px;">
+        <h3 style="font-family:'Anton',sans-serif;font-weight:400;text-transform:uppercase;font-size:clamp(1.6rem,3vw,2.2rem);margin:0;line-height:.95;">Fake Hustle</h3>
       </div>
     </article>
   </div>
@@ -145,9 +121,9 @@ a:hover{color:#e7a4ac;}
 </x-dc>
 <script type="text/x-dc" data-dc-script>
 class Component extends DCLogic {
-  state = { muted: { v1: true, v2: true, v3: true, v4: true, v5: true, v6: true } };
+  state = { muted: { v1: true, v2: true, v3: true, v4: true, v5: true } };
   videoRefs = {};
-  setRef(key) { return (el) => { this.videoRefs[key] = el; }; }
+  setRef(key) { return (el) => { this.videoRefs[key] = el; if (el) el.muted = this.state.muted[key]; }; }
   toggle(key) {
     return () => {
       this.setState((s) => {
@@ -160,12 +136,14 @@ class Component extends DCLogic {
   }
   renderVals() {
     const m = this.state.muted;
-    const keys = ['v1', 'v2', 'v3', 'v4', 'v5', 'v6'];
+    const keys = ['v1', 'v2', 'v3', 'v4', 'v5'];
     const out = {};
     keys.forEach((k) => {
       out[k + 'Ref'] = this.setRef(k);
       out[k + 'Toggle'] = this.toggle(k);
       out[k + 'Label'] = m[k] ? 'Unmute' : 'Mute';
+      out[k + 'Muted'] = m[k];
+      out[k + 'Unmuted'] = !m[k];
     });
     return out;
   }
