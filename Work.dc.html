@@ -35,7 +35,8 @@ a:hover{color:#e7a4ac;}
   <div style="width:100%;max-width:1320px;margin-inline:auto;padding-inline:clamp(20px,5vw,80px);display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(20px,3vw,40px);">
     <article style="background:#271013;border-radius:26px;overflow:hidden;border:1px solid rgba(244,235,230,.28);">
       <div style="position:relative;aspect-ratio:9/16;background:#5c0f1b;overflow:hidden;">
-        <video ref="{{v1Ref}}" autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;display:block;"><source src="assets/videos/vision-board.mp4" type="video/mp4"></video>
+        <div style="position:absolute;top:16px;left:16px;z-index:3;display:flex;flex-direction:column;align-items:flex-start;gap:8px;"><span style="font-family:'Space Mono',monospace;font-weight:700;font-size:.78rem;padding:.5em 1em;border-radius:999px;background:#b32434;color:#fff;">Creative Camera Shot</span></div>
+        <video ref="{{v1Ref}}" autoplay muted loop playsinline controls controlsList="nodownload noremoteplayback" style="width:100%;height:100%;object-fit:cover;display:block;"><source src="assets/videos/vision-board.mp4" type="video/mp4"></video>
         <button type="button" onclick="{{v1Toggle}}" aria-label="{{v1Label}}" style="position:absolute;bottom:14px;right:14px;z-index:2;width:38px;height:38px;display:grid;place-items:center;border-radius:50%;background:rgba(28,10,13,.7);color:#f4ebe6;border:1px solid rgba(244,235,230,.4);"><sc-if value="{{v1Muted}}" hint-placeholder-val="{{true}}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:18px;height:18px;display:block;"><path d="M11 5 6 9H3v6h3l5 4V5z"/><line x1="16" y1="9" x2="22" y2="15"/><line x1="22" y1="9" x2="16" y2="15"/></svg></sc-if><sc-if value="{{v1Unmuted}}" hint-placeholder-val="{{false}}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:18px;height:18px;display:block;"><path d="M11 5 6 9H3v6h3l5 4V5z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M18.5 6a9 9 0 0 1 0 12"/></svg></sc-if></button>
       </div>
       <div style="padding:clamp(20px,2.4vw,30px);display:flex;align-items:center;justify-content:space-between;gap:12px;">
@@ -44,7 +45,7 @@ a:hover{color:#e7a4ac;}
     </article>
     <article style="background:#271013;border-radius:26px;overflow:hidden;border:1px solid rgba(244,235,230,.28);">
       <div style="position:relative;aspect-ratio:9/16;background:#5c0f1b;overflow:hidden;">
-        <video ref="{{v2Ref}}" autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;display:block;"><source src="assets/videos/my-goals.mp4" type="video/mp4"></video>
+        <video ref="{{v2Ref}}" autoplay muted loop playsinline controls controlsList="nodownload noremoteplayback" style="width:100%;height:100%;object-fit:cover;display:block;"><source src="assets/videos/my-goals.mp4" type="video/mp4"></video>
         <button type="button" onclick="{{v2Toggle}}" aria-label="{{v2Label}}" style="position:absolute;bottom:14px;right:14px;z-index:2;width:38px;height:38px;display:grid;place-items:center;border-radius:50%;background:rgba(28,10,13,.7);color:#f4ebe6;border:1px solid rgba(244,235,230,.4);"><sc-if value="{{v2Muted}}" hint-placeholder-val="{{true}}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:18px;height:18px;display:block;"><path d="M11 5 6 9H3v6h3l5 4V5z"/><line x1="16" y1="9" x2="22" y2="15"/><line x1="22" y1="9" x2="16" y2="15"/></svg></sc-if><sc-if value="{{v2Unmuted}}" hint-placeholder-val="{{false}}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:18px;height:18px;display:block;"><path d="M11 5 6 9H3v6h3l5 4V5z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M18.5 6a9 9 0 0 1 0 12"/></svg></sc-if></button>
       </div>
       <div style="padding:clamp(20px,2.4vw,30px);display:flex;align-items:center;justify-content:space-between;gap:12px;">
@@ -53,7 +54,7 @@ a:hover{color:#e7a4ac;}
     </article>
     <article style="background:#271013;border-radius:26px;overflow:hidden;border:1px solid rgba(244,235,230,.28);">
       <div style="position:relative;aspect-ratio:9/16;background:#5c0f1b;overflow:hidden;">
-        <video ref="{{v3Ref}}" autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;display:block;"><source src="assets/videos/cue-wrong-habits.mp4" type="video/mp4"></video>
+        <video ref="{{v3Ref}}" autoplay muted loop playsinline controls controlsList="nodownload noremoteplayback" style="width:100%;height:100%;object-fit:cover;display:block;"><source src="assets/videos/cue-wrong-habits.mp4" type="video/mp4"></video>
         <button type="button" onclick="{{v3Toggle}}" aria-label="{{v3Label}}" style="position:absolute;bottom:14px;right:14px;z-index:2;width:38px;height:38px;display:grid;place-items:center;border-radius:50%;background:rgba(28,10,13,.7);color:#f4ebe6;border:1px solid rgba(244,235,230,.4);"><sc-if value="{{v3Muted}}" hint-placeholder-val="{{true}}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:18px;height:18px;display:block;"><path d="M11 5 6 9H3v6h3l5 4V5z"/><line x1="16" y1="9" x2="22" y2="15"/><line x1="22" y1="9" x2="16" y2="15"/></svg></sc-if><sc-if value="{{v3Unmuted}}" hint-placeholder-val="{{false}}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:18px;height:18px;display:block;"><path d="M11 5 6 9H3v6h3l5 4V5z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M18.5 6a9 9 0 0 1 0 12"/></svg></sc-if></button>
       </div>
       <div style="padding:clamp(20px,2.4vw,30px);display:flex;align-items:center;justify-content:space-between;gap:12px;">
@@ -62,7 +63,8 @@ a:hover{color:#e7a4ac;}
     </article>
     <article style="background:#271013;border-radius:26px;overflow:hidden;border:1px solid rgba(244,235,230,.28);">
       <div style="position:relative;aspect-ratio:9/16;background:#5c0f1b;overflow:hidden;">
-        <video ref="{{v4Ref}}" autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;display:block;"><source src="assets/videos/zudio.mp4" type="video/mp4"></video>
+        <div style="position:absolute;top:16px;left:16px;z-index:3;display:flex;flex-direction:column;align-items:flex-start;gap:8px;"><span style="font-family:'Space Mono',monospace;font-weight:700;font-size:.78rem;padding:.5em 1em;border-radius:999px;background:#b32434;color:#fff;">Most Watched</span><span style="font-family:'Space Mono',monospace;font-weight:700;font-size:.78rem;padding:.5em 1em;border-radius:999px;background:#b32434;color:#fff;">4M+ views</span></div>
+        <video ref="{{v4Ref}}" autoplay muted loop playsinline controls controlsList="nodownload noremoteplayback" style="width:100%;height:100%;object-fit:cover;display:block;"><source src="assets/videos/zudio.mp4" type="video/mp4"></video>
         <button type="button" onclick="{{v4Toggle}}" aria-label="{{v4Label}}" style="position:absolute;bottom:14px;right:14px;z-index:2;width:38px;height:38px;display:grid;place-items:center;border-radius:50%;background:rgba(28,10,13,.7);color:#f4ebe6;border:1px solid rgba(244,235,230,.4);"><sc-if value="{{v4Muted}}" hint-placeholder-val="{{true}}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:18px;height:18px;display:block;"><path d="M11 5 6 9H3v6h3l5 4V5z"/><line x1="16" y1="9" x2="22" y2="15"/><line x1="22" y1="9" x2="16" y2="15"/></svg></sc-if><sc-if value="{{v4Unmuted}}" hint-placeholder-val="{{false}}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:18px;height:18px;display:block;"><path d="M11 5 6 9H3v6h3l5 4V5z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M18.5 6a9 9 0 0 1 0 12"/></svg></sc-if></button>
       </div>
       <div style="padding:clamp(20px,2.4vw,30px);display:flex;align-items:center;justify-content:space-between;gap:12px;">
@@ -71,7 +73,8 @@ a:hover{color:#e7a4ac;}
     </article>
     <article style="background:#271013;border-radius:26px;overflow:hidden;border:1px solid rgba(244,235,230,.28);">
       <div style="position:relative;aspect-ratio:9/16;background:#5c0f1b;overflow:hidden;">
-        <video ref="{{v5Ref}}" autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;display:block;"><source src="assets/videos/fake-hustle.mp4" type="video/mp4"></video>
+        <div style="position:absolute;top:16px;left:16px;z-index:3;display:flex;flex-direction:column;align-items:flex-start;gap:8px;"><span style="font-family:'Space Mono',monospace;font-weight:700;font-size:.78rem;padding:.5em 1em;border-radius:999px;background:#b32434;color:#fff;">Creative Editing</span><span style="font-family:'Space Mono',monospace;font-weight:700;font-size:.78rem;padding:.5em 1em;border-radius:999px;background:#b32434;color:#fff;">Shoot</span></div>
+        <video ref="{{v5Ref}}" autoplay muted loop playsinline controls controlsList="nodownload noremoteplayback" style="width:100%;height:100%;object-fit:cover;display:block;"><source src="assets/videos/fake-hustle.mp4" type="video/mp4"></video>
         <button type="button" onclick="{{v5Toggle}}" aria-label="{{v5Label}}" style="position:absolute;bottom:14px;right:14px;z-index:2;width:38px;height:38px;display:grid;place-items:center;border-radius:50%;background:rgba(28,10,13,.7);color:#f4ebe6;border:1px solid rgba(244,235,230,.4);"><sc-if value="{{v5Muted}}" hint-placeholder-val="{{true}}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:18px;height:18px;display:block;"><path d="M11 5 6 9H3v6h3l5 4V5z"/><line x1="16" y1="9" x2="22" y2="15"/><line x1="22" y1="9" x2="16" y2="15"/></svg></sc-if><sc-if value="{{v5Unmuted}}" hint-placeholder-val="{{false}}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:18px;height:18px;display:block;"><path d="M11 5 6 9H3v6h3l5 4V5z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M18.5 6a9 9 0 0 1 0 12"/></svg></sc-if></button>
       </div>
       <div style="padding:clamp(20px,2.4vw,30px);display:flex;align-items:center;justify-content:space-between;gap:12px;">
@@ -123,7 +126,7 @@ a:hover{color:#e7a4ac;}
 class Component extends DCLogic {
   state = { muted: { v1: true, v2: true, v3: true, v4: true, v5: true } };
   videoRefs = {};
-  setRef(key) { return (el) => { this.videoRefs[key] = el; if (el) el.muted = this.state.muted[key]; }; }
+  setRef(key) { return (el) => { this.videoRefs[key] = el; if (el) { el.muted = this.state.muted[key]; el.loop = true; el.controls = true; } }; }
   toggle(key) {
     return () => {
       this.setState((s) => {
