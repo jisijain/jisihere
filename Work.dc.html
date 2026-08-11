@@ -126,7 +126,17 @@ a:hover{color:#e7a4ac;}
 class Component extends DCLogic {
   state = { muted: { v1: true, v2: true, v3: true, v4: true, v5: true } };
   videoRefs = {};
-  setRef(key) { return (el) => { this.videoRefs[key] = el; if (el) { el.muted = this.state.muted[key]; el.loop = true; el.controls = true; } }; }
+  setRef(key) {
+    return (el) => {
+      this.videoRefs[key] = el;
+      if (el) {
+        el.muted = this.state.muted[key];
+        el.loop = true;
+        el.controls = true;
+        if (this.observer) this.observer.observe(el);
+      }
+    };
+  }
   toggle(key) {
     return () => {
       this.setState((s) => {
@@ -140,6 +150,28 @@ class Component extends DCLogic {
         return { muted: next };
       });
     };
+  }
+  componentDidMount() {
+    this.observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) continue;
+          const key = Object.keys(this.videoRefs).find((k) => this.videoRefs[k] === entry.target);
+          if (key && this.state.muted[key] === false) {
+            entry.target.muted = true;
+            this.setState((s) => ({ muted: { ...s.muted, [key]: true } }));
+          }
+        }
+      },
+      { threshold: 0.3 }
+    );
+    for (const k in this.videoRefs) {
+      const el = this.videoRefs[k];
+      if (el) this.observer.observe(el);
+    }
+  }
+  componentWillUnmount() {
+    if (this.observer) this.observer.disconnect();
   }
   renderVals() {
     const m = this.state.muted;
