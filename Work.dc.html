@@ -121,6 +121,15 @@ a:hover{color:#e7a4ac;}
         <h3>Fake Hustle</h3>
       </div>
     </article>
+    <article class="video-card">
+      <div class="video-box">
+        <video ref="{{v7Ref}}" playsinline preload="metadata"><source src="assets/videos/buyhatke.mp4" type="video/mp4"></video>
+        <sc-if value="{{v7NotPlaying}}" hint-placeholder-val="{{true}}"><button type="button" class="video-play" onclick="{{v7Play}}" aria-label="Play video with sound"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></button></sc-if>
+      </div>
+      <div class="video-caption">
+        <h3>BuyHatke</h3>
+      </div>
+    </article>
   </div>
 </section>
 <section data-screen-label="Work / CTA" style="background:radial-gradient(120% 140% at 50% 0%, #b32434 0%, #7a1420 55%);color:#f4ebe6;padding:clamp(72px,11vw,150px) 0;">
@@ -164,7 +173,7 @@ a:hover{color:#e7a4ac;}
 </x-dc>
 <script type="text/x-dc" data-dc-script>
 class Component extends DCLogic {
-  state = { playing: { v1: false, v2: false, v3: false, v4: false, v5: false, v6: false } };
+  state = { playing: { v1: false, v2: false, v3: false, v4: false, v5: false, v6: false, v7: false } };
   videoRefs = {};
   setRef(key) {
     return (el) => {
@@ -221,7 +230,7 @@ class Component extends DCLogic {
   }
   renderVals() {
     const p = this.state.playing;
-    const keys = ['v1', 'v2', 'v3', 'v4', 'v5', 'v6'];
+    const keys = ['v1', 'v2', 'v3', 'v4', 'v5', 'v6', 'v7'];
     const out = {};
     keys.forEach((k) => {
       out[k + 'Ref'] = this.setRef(k);
