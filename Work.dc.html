@@ -16,6 +16,12 @@
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:ital,wght@0,400;0,500;0,600;0,700;0,800;1,500&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <script src="./image-slot.js"></script>
 <style>
+.exp-row{display:grid;grid-template-columns:3ch 1fr auto;align-items:center;gap:clamp(16px,3vw,40px);padding:clamp(18px,2.6vw,30px) 6px;border-bottom:2px solid rgba(244,235,230,.28);}
+.exp-light .exp-row{border-bottom-color:rgba(28,10,13,.2);}
+.exp-num{font-family:'Space Mono',monospace;font-weight:700;opacity:.55;}
+.exp-role{font-family:'Anton',sans-serif;text-transform:uppercase;font-size:clamp(1.6rem,4vw,2.8rem);line-height:1;}
+.exp-co{font-family:'Space Mono',monospace;font-weight:700;font-size:clamp(.85rem,1.4vw,1.1rem);color:#b32434;text-transform:uppercase;letter-spacing:.08em;text-align:right;}
+@media (max-width:640px){.exp-row{grid-template-columns:3ch 1fr;}.exp-co{grid-column:2;text-align:left;}}
 .nav-links{justify-self:center;display:flex;align-items:center;gap:4px;background:rgba(28,10,13,.4);border:1px solid rgba(244,235,230,.28);padding:6px;border-radius:999px;flex-wrap:wrap;}
 .nav-toggle{display:none;background:none;cursor:pointer;}
 .back-to-top{position:fixed;right:20px;bottom:20px;z-index:90;width:48px;height:48px;border-radius:50%;background:#b32434;color:#fff;display:flex;align-items:center;justify-content:center;border:none;cursor:pointer;box-shadow:0 10px 24px -8px rgba(0,0,0,.5);opacity:0;visibility:hidden;transform:translateY(12px);transition:opacity .25s ease,transform .25s ease,visibility .25s;}
@@ -133,6 +139,16 @@ a:hover{color:#e7a4ac;}
         <h3>BuyHatke</h3>
       </div>
     </article>
+  </div>
+</section>
+<section data-screen-label="Work / Experience" style="background:#f4ebe6;color:#1c0a0d;padding:clamp(72px,11vw,150px) 0;">
+  <div style="width:100%;max-width:1320px;margin-inline:auto;padding-inline:clamp(20px,5vw,80px);">
+    <p style="font-family:'Space Mono',monospace;font-size:13px;letter-spacing:.32em;text-transform:uppercase;font-weight:700;display:inline-flex;align-items:center;gap:.7em;opacity:.85;margin:0 0 18px;"><span style="width:26px;height:2px;background:currentColor;opacity:.6;"></span>Experience</p>
+    <h2 style="font-family:'Anton',sans-serif;font-weight:400;line-height:.92;text-transform:uppercase;margin:0 0 clamp(36px,5vw,56px);font-size:clamp(2.6rem,7vw,5.4rem);">Currently freelancing with</h2>
+    <ul class="exp-light" style="list-style:none;margin:0;padding:0;border-top:2px solid rgba(28,10,13,.2);">
+      <li class="exp-row"><span class="exp-num">01</span><span class="exp-role">Fitsrot</span><span class="exp-co">Freelance Brand Manager &amp; Content Creator</span></li>
+      <li class="exp-row"><span class="exp-num">02</span><span class="exp-role">Skin Matters</span><span class="exp-co">Freelance Brand Manager &amp; Content Creator</span></li>
+    </ul>
   </div>
 </section>
 <section data-screen-label="Work / CTA" style="background:radial-gradient(120% 140% at 50% 0%, #b32434 0%, #7a1420 55%);color:#f4ebe6;padding:clamp(72px,11vw,150px) 0;">
